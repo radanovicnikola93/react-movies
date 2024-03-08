@@ -1,9 +1,11 @@
-import React from "react";
+import {React, useEffect} from "react";
 import './App.scss'
+import Navbar from "./components/Navbar";
+
 
 const App = () => {
   return (
-    <div>Starter Template</div>
+    <Navbar />
   )
 }
 
