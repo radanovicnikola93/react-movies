@@ -1,9 +1,18 @@
-import React from "react";
+import {React, useState} from "react";
 import './App.scss'
+import Navbar from "./components/Navbar/Navbar";
+
 
 const App = () => {
+  const [isLightMode, setIsLightMode] = useState(false);
+
+  // Light / dark mode handler
+  const handleLightMode = () => {
+    setIsLightMode(prevState => !prevState)
+  }
+
   return (
-    <div>Starter Template</div>
+    <Navbar isLightMode={isLightMode} handleLightMode={handleLightMode}/>
   )
 }
 

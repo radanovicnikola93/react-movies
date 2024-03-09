@@ -6,9 +6,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const Main = () => {
   return (
-    <React.Fragment>
+    <React.StrictMode>
       <App />
-    </React.Fragment>
+    </React.StrictMode>
   )
 }
 
