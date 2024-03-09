@@ -1,5 +1,6 @@
 import React from "react";
 import LightDarkModeButton from "./LightDarkModeButton";
+// import logo from './logo.svg'
 
 const Navbar = ({isLightMode, handleLightMode}) => {
   return (

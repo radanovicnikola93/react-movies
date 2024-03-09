@@ -1,6 +1,7 @@
 @use './styles/reset.scss';
 @use './styles/default-values.scss';
 @use './components/Navbar/Navbar.scss';
+@use './components/Jumbotron/Jumbotron.scss';
 
 body {
   font-family: 'OpenSans', sans-serif;
