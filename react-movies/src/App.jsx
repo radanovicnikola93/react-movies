@@ -9,13 +9,16 @@ import Upcoming from "./components/Pages/Upcoming";
 import Layout from "./components/Layout";
 
 const App = () => {
-  const [isLightMode, setIsLightMode] = useState(false);
+  const [isLightMode, setIsLightMode] = useState(JSON.parse(localStorage.getItem("theme") ?? false));
 
   // Light / dark mode handler
   const handleLightMode = () => {
-    setIsLightMode(prevState => !prevState)
+      setIsLightMode(darkMode => {
+        localStorage.setItem('theme', !darkMode);
+        return !darkMode;
+      })
   }
-
+  
   return (
     <>
       <BrowserRouter>
