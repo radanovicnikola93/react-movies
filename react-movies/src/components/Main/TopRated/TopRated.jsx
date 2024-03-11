@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import Card from '../Card/Card'
 // import genresData from "../../../data/genres-config";
 
-const UpcomingList = ({isLightMode}) => {
-  const [upcomingList, setUpcomingList] = useState([]);
+const TopRatedList = ({isLightMode}) => {
+  const [topRatedList, setTopRatedList] = useState([]);
 
     // FETCH DATA
     useEffect(() => {
       const url =
-          "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1";
+          "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1";
       const options = {
           method: "GET",
           headers: {
@@ -18,16 +18,16 @@ const UpcomingList = ({isLightMode}) => {
           },
       };
 
-      async function getTrendingMoviesData() {
+      async function getTopRatedMoviesData() {
         try {
           const response = await fetch(url, options);
           const data = await response.json();
-          setUpcomingList(data.results)
+          setTopRatedList(data.results)
         } catch(error) {
           console.error(error)
         }
       }
-      getTrendingMoviesData()
+      getTopRatedMoviesData()
   }, []);
 
   return (
@@ -35,9 +35,9 @@ const UpcomingList = ({isLightMode}) => {
     // - Sort and filter the map method from the popularity property of the object
     // - Grab the https://developer.themoviedb.org/reference/genre-movie-list object and add the update the correct names for the genre id to display in the card
     <section className={`grid ${isLightMode ? 'light-mode' : 'dark-mode'}`}>
-      <h2 className="grid__heading">Top Upcoming / Airing Movies</h2>
+      <h2 className="grid__heading">Top Rated Movies</h2>
       <div className="grid__list">
-        {upcomingList.slice(0, 5).map(element => {
+        {topRatedList.slice(0, 5).map(element => {
           return (
             <Card 
               key={element.id}
@@ -55,4 +55,4 @@ const UpcomingList = ({isLightMode}) => {
   )
 }
 
-export default UpcomingList;
+export default TopRatedList;

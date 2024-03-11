@@ -1,8 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Card = ({title, overview, posterImg, releaseDate, voteAverage, voteCount}) => {
+const Card = ({title, posterImg, releaseDate, voteAverage, voteCount, id}) => {
   return (
-    <article className="grid__card">
+    <Link to={`/upcoming/${id}`}>
+      <article className="grid__card">
       <div className="card__header">
         <img className="card__img" src={`https://image.tmdb.org/t/p/w1280/${posterImg}`} alt={title}/>
         <span className="card__pin"><strong>{voteAverage.toFixed(1)}</strong> <small>({voteCount})</small></span>
@@ -12,6 +14,7 @@ const Card = ({title, overview, posterImg, releaseDate, voteAverage, voteCount})
         <p className="card__light-text"><strong>{releaseDate}</strong></p>
       </div>
     </article>
+    </Link>
   )
 }
 

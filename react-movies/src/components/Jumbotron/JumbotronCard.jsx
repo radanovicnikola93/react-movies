@@ -1,7 +1,9 @@
 import React from "react";
+import { Link} from "react-router-dom";
 
-const JumbotronCard = ({ backgroundImg, title, overview, averageVote, mainImg, classNamePosition}) => {
+const JumbotronCard = ({ backgroundImg, title, overview, averageVote, mainImg, classNamePosition, id}) => {
     return (
+        <Link to={`/upcoming/${id}`}>
         <div
             className={`jumbotron__wrapper ${classNamePosition}`}
             style={{ backgroundImage: `url('https://media.themoviedb.org/t/p/w1920_and_h800_multi_faces/${backgroundImg}')`}}
@@ -15,6 +17,7 @@ const JumbotronCard = ({ backgroundImg, title, overview, averageVote, mainImg, c
                 <p className="header__description">{overview}</p>
             </header>
         </div>
+        </Link>
     );
 };
 

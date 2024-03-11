@@ -70,6 +70,7 @@ const Jumbotron = ({ isLightMode }) => {
                     return (
                         <JumbotronCard
                             key={element.id}
+                            id={element.id}
                             backgroundImg={element.backdrop_path}
                             mainImg={element.poster_path}
                             title={element.title}

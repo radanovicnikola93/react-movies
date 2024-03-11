@@ -6,6 +6,10 @@
   gap: 50px;
   padding: 50px;
 
+  &.main-p-i-0 {
+    padding: 50px 0;
+  }
+
   &.dark-mode {
     background-color: #000;
     color: #FFF;

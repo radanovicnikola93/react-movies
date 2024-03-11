@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import Card from '../Card/Card'
 // import genresData from "../../../data/genres-config";
 
-const UpcomingList = ({isLightMode}) => {
-  const [upcomingList, setUpcomingList] = useState([]);
+const TrendingList = ({isLightMode}) => {
+  const [trendingList, setTrendingList] = useState([]);
 
     // FETCH DATA
     useEffect(() => {
       const url =
-          "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1";
+          "https://api.themoviedb.org/3/movie/popular?language=en-US&page=1";
       const options = {
           method: "GET",
           headers: {
@@ -22,7 +22,7 @@ const UpcomingList = ({isLightMode}) => {
         try {
           const response = await fetch(url, options);
           const data = await response.json();
-          setUpcomingList(data.results)
+          setTrendingList(data.results)
         } catch(error) {
           console.error(error)
         }
@@ -35,9 +35,9 @@ const UpcomingList = ({isLightMode}) => {
     // - Sort and filter the map method from the popularity property of the object
     // - Grab the https://developer.themoviedb.org/reference/genre-movie-list object and add the update the correct names for the genre id to display in the card
     <section className={`grid ${isLightMode ? 'light-mode' : 'dark-mode'}`}>
-      <h2 className="grid__heading">Top Upcoming / Airing Movies</h2>
+      <h2 className="grid__heading">Trending Movies</h2>
       <div className="grid__list">
-        {upcomingList.slice(0, 5).map(element => {
+        {trendingList.slice(0, 5).map(element => {
           return (
             <Card 
               key={element.id}
@@ -55,4 +55,4 @@ const UpcomingList = ({isLightMode}) => {
   )
 }
 
-export default UpcomingList;
+export default TrendingList;
