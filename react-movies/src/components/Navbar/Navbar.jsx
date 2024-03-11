@@ -21,7 +21,7 @@ const Navbar = ({isLightMode, handleLightMode}) => {
               <li className="list__item fs-18">Trending - </li>
             </Link>
             <Link to={'/upcoming'}>
-              <li className="list__item fs-18">Popular</li>
+              <li className="list__item fs-18">Upcoming</li>
             </Link>
           </ul>
         </div>

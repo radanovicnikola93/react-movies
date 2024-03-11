@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Card from '../Card/Card'
-// import genresData from "../../../data/genres-config";
 
 const UpcomingList = ({isLightMode}) => {
   const [upcomingList, setUpcomingList] = useState([]);
@@ -31,9 +30,6 @@ const UpcomingList = ({isLightMode}) => {
   }, []);
 
   return (
-    // Todo: 
-    // - Sort and filter the map method from the popularity property of the object
-    // - Grab the https://developer.themoviedb.org/reference/genre-movie-list object and add the update the correct names for the genre id to display in the card
     <section className={`grid ${isLightMode ? 'light-mode' : 'dark-mode'}`}>
       <h2 className="grid__heading">Top Upcoming / Airing Movies</h2>
       <div className="grid__list">
