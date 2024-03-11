@@ -45,7 +45,7 @@ const Jumbotron = ({ isLightMode }) => {
     useEffect(() => {
       let slider = setInterval(() => {
         setIndex(index + 1);
-      }, 2500);
+      }, 3500);
       return () => clearInterval(slider);
     }, [index]);
 

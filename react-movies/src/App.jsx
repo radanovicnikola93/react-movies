@@ -1,8 +1,12 @@
 import {React, useState} from "react";
-import './App.scss'
-import Navbar from "./components/Navbar/Navbar";
-import Jumbotron from "./components/Jumbotron/Jumbotron";
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
+import './App.scss';
+// Pages
+import Home from "./components/Pages/Home";
+import Trending from "./components/Pages/Trending";
+import Upcoming from "./components/Pages/Upcoming";
+import Layout from "./components/Layout";
 
 const App = () => {
   const [isLightMode, setIsLightMode] = useState(false);
@@ -14,8 +18,15 @@ const App = () => {
 
   return (
     <>
-      <Navbar isLightMode={isLightMode} handleLightMode={handleLightMode}/>
-      <Jumbotron isLightMode={isLightMode}/>
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Layout isLightMode={isLightMode} handleLightMode={handleLightMode}/>}>
+            <Route path="/" element={<Home isLightMode={isLightMode}/>} />
+            <Route path="/trending" element={<Trending />} />
+            <Route path="/upcoming" element={<Upcoming />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }
