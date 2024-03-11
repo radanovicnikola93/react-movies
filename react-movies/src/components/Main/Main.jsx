@@ -1,14 +1,14 @@
 import React from "react";
-import UpcomingList from "./UpcomingList/UpcomingList";
-import TrendingList from "./TrendingList/TrendingList";
-import TopRatedList from "./TopRatedList/TopRatedList";
+import TopRated from "../Pages/TopRated";
+import Trending from "../Pages/Trending";
+import Upcoming from "../Pages/Upcoming";
 
 const Main = ({isLightMode}) => {
   return (
     <main className={`main ${isLightMode ? 'light-mode' : 'dark-mode'}`}>
-      <TopRatedList isLightMode={isLightMode}/>
-      <TrendingList isLightMode={isLightMode}/>
-      <UpcomingList isLightMode={isLightMode}/>
+      <TopRated displayNumItems={5} isLightMode={isLightMode} notStretched={true}/>
+      <Trending displayNumItems={5} isLightMode={isLightMode} notStretched={true}/>
+      <Upcoming displayNumItems={5} isLightMode={isLightMode} notStretched={true}/>
     </main>
   )
 }

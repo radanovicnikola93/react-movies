@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Card from '../Main/Card/Card'
 
-const Trending = ({isLightMode}) => {
+const Trending = ({isLightMode, displayNumItems, notStretched}) => {
   const [trendingList, setTrendingList] = useState([]);
 
     // FETCH DATA
@@ -30,11 +31,13 @@ const Trending = ({isLightMode}) => {
   }, []);
 
   return (
-    <main className={`main ${isLightMode ? 'light-mode' : 'dark-mode'}`}>
+    <main className={`main ${notStretched ? 'main--not-stretched' : ''} ${isLightMode ? 'light-mode' : 'dark-mode'}`}>
       <section className={`grid ${isLightMode ? 'light-mode' : 'dark-mode'}`}>
-        <h2 className="grid__heading">Trending Movies</h2>
+        <Link to={'/trending'}>
+          <h2 className="grid__heading">Trending Movies</h2>
+        </Link>
         <div className="grid__list">
-          {trendingList.map(element => {
+          {trendingList.slice(0, (displayNumItems ?? 20)).map(element => {
             return (
               <Card 
                 key={element.id}
