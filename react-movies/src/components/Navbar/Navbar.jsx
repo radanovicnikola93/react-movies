@@ -14,11 +14,14 @@ const Navbar = ({isLightMode, handleLightMode}) => {
       <div className="navbar__interactions">
         <div>
           <ul className="interactions__list">
-          <Link to={'/trending'}>
-            <li className="list__item fs-18">Trending</li>
+            <Link to={'/top_rated'}>
+              <li className="list__item fs-18">Top Rated - </li>
+            </Link>
+            <Link to={'/trending'}>
+              <li className="list__item fs-18">Trending - </li>
             </Link>
             <Link to={'/upcoming'}>
-            <li className="list__item fs-18">Popular</li>
+              <li className="list__item fs-18">Popular</li>
             </Link>
           </ul>
         </div>
