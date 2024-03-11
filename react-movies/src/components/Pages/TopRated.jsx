@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import Card from '../Main/Card/Card'
+import Card from '../Main/Card/Card';
 
-const Upcoming = ({isLightMode}) => {
-  const [upcomingList, setUpcomingList] = useState([]);
+const TopRated = ({isLightMode}) => {
+  const [topRatedList, setTopRatedList] = useState([]);
 
     // FETCH DATA
     useEffect(() => {
       const url =
-          "https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1";
+          "https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1";
       const options = {
           method: "GET",
           headers: {
@@ -17,24 +17,24 @@ const Upcoming = ({isLightMode}) => {
           },
       };
 
-      async function getTrendingMoviesData() {
+      async function getTopRatedMoviesData() {
         try {
           const response = await fetch(url, options);
           const data = await response.json();
-          setUpcomingList(data.results)
+          setTopRatedList(data.results)
         } catch(error) {
           console.error(error)
         }
       }
-      getTrendingMoviesData()
+      getTopRatedMoviesData()
   }, []);
 
   return (
     <main className={`main ${isLightMode ? 'light-mode' : 'dark-mode'}`}>
       <section className={`grid ${isLightMode ? 'light-mode' : 'dark-mode'}`}>
-        <h2 className="grid__heading">Top Upcoming / Airing Movies</h2>
+        <h2 className="grid__heading">Top Rated Movies</h2>
         <div className="grid__list">
-          {upcomingList.map(element => {
+          {topRatedList.map(element => {
             return (
               <Card 
                 key={element.id}
@@ -53,4 +53,4 @@ const Upcoming = ({isLightMode}) => {
   )
 }
 
-export default Upcoming;
+export default TopRated;

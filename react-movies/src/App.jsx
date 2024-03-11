@@ -8,6 +8,7 @@ import Layout from "./components/Layout";
 import Home from "./components/Pages/Home";
 import Trending from "./components/Pages/Trending";
 import Upcoming from "./components/Pages/Upcoming";
+import TopRated from "./components/Pages/TopRated";
 import SingleItem from "./components/Pages/SingleItem";
 
 const App = () => {
@@ -27,11 +28,12 @@ const App = () => {
         <Routes>
           <Route element={<Layout isLightMode={isLightMode} handleLightMode={handleLightMode}/>}>
             <Route path="/" element={<Home isLightMode={isLightMode}/>} />
-            <Route path="/trending" element={<Trending />} />
-            <Route path="/trending/:id" element={<SingleItem />} />
-            <Route path="/upcoming" element={<Upcoming />} />
-            <Route path="/upcoming/:id" element={<SingleItem isLightMode={isLightMode} />} />
+            <Route path="/top_rated/" element={<TopRated isLightMode={isLightMode} />} />
             <Route path="/top_rated/:id" element={<SingleItem isLightMode={isLightMode} />} />
+            <Route path="/trending" element={<Trending isLightMode={isLightMode} />} />
+            <Route path="/trending/:id" element={<SingleItem isLightMode={isLightMode} />} />
+            <Route path="/upcoming" element={<Upcoming isLightMode={isLightMode} />} />
+            <Route path="/upcoming/:id" element={<SingleItem isLightMode={isLightMode} />} />
           </Route>
         </Routes>
       </BrowserRouter>
