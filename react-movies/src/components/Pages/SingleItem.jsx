@@ -42,9 +42,11 @@ const SingleItem = ({isLightMode}) => {
               </div>
               <h1 className="single-item__heading">{movie.title}</h1>
             </div>
-            <div className="mb-14">
-              <p className="single-item__italic">"{movie.tagline}"</p>
-            </div>
+            {movie.tagline &&
+              <div className="mb-14">
+                <p className="single-item__italic">"{movie.tagline}"</p>
+              </div>
+            }
             <div className="single-item__bullets mb-14">
               <span className="bullets__bullet">{movie.vote_average.toFixed(1)}</span>
               {movie.genres.map(genre => {
